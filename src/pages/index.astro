@@ -1,50 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro'
+import Container from '../ui/Container.astro'
 import Badge from '../ui/Badge.astro'
-import Card from '../ui/Card.astro'
 import Button from '../ui/Button.astro'
+import Avatar from '../ui/Avatar.astro'
 ---
 
-<Layout title='Welcome to Astro.'>
-  <main>
-    <Card>
-      <Badge color='red'>red</Badge>
-      <Badge color='indigo'>indigo</Badge>
-      <Badge color='green'>green</Badge>
-      <Badge color='blue'>blue</Badge>
-      <Badge color='yellow'>yellow</Badge>
-      <Badge color='purple'>purple</Badge>
-      <Badge color='pink'>pink</Badge>
-      <Badge>Default</Badge>
-    </Card>
-    <Card>
-      <Button
-        disabled
-        size='lg'
-      >
-        Primary
-      </Button>
-      <Button>Primary</Button>
-      <Button size='sm'>Primary</Button>
-      <Button theme='secondary'>Secondary</Button>
-      <Button theme='danger'>Secondary</Button>
-      <Button
-        linkButton
-        href='/'
-        size='sm'
-        theme='secondary'
-      >
-        Secondary
-      </Button>
-    </Card>
-  </main>
+<Layout title='Componentes Astro Tailwind'>
+  <Container>
+    <Button>Button</Button>
+    <Badge>Badge</Badge>
+    <Avatar />
+  </Container>
 </Layout>
-
-<style>
-  main {
-    margin: auto;
-    padding: 1rem;
-    width: 800px;
-    max-width: calc(100% - 2rem);
-  }
-</style>
