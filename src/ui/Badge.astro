@@ -1,0 +1,38 @@
+---
+interface Props {
+  class?: string
+  color?:
+    | 'gray'
+    | 'red'
+    | 'green'
+    | 'blue'
+    | 'yellow'
+    | 'indigo'
+    | 'purple'
+    | 'pink'
+}
+
+const { color = 'gray', class: className, ...rest } = Astro.props
+
+const colors = {
+  red: 'bg-red-50 text-red-700 ring-red-600/10',
+  green: 'bg-green-50 text-green-700 ring-green-600/20',
+  blue: 'bg-blue-50 text-blue-700 ring-blue-600/10',
+  yellow: 'bg-yellow-50 text-yellow-800 ring-yellow-600/20',
+  indigo: 'bg-indigo-50 text-indigo-700 ring-indigo-600/10',
+  purple: 'bg-purple-50 text-purple-700 ring-purple-600/10',
+  pink: 'bg-pink-50 text-pink-700 ring-pink-600/10',
+  gray: 'bg-gray-50 text-gray-600 ring-gray-500/10'
+}
+---
+
+<div
+  class:list={[
+    'inline-flex items-center rounded-full px-2 py-1 text-xs font-medium ring-1 ring-inset',
+    className,
+    { [colors[color]]: color }
+  ]}
+  {...rest}
+>
+  <slot />
+</div>
