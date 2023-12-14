@@ -2,7 +2,7 @@
 interface Props {
   href?: string
   class?: string
-  color?: 'primary' | 'secondary'
+  theme?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info'
   size?: 'sm' | 'md' | 'lg'
   type?: 'button' | 'submit' | 'reset'
   disabled?: boolean
@@ -13,7 +13,7 @@ const {
   href,
   linkButton = false,
   type = 'button',
-  color = 'primary',
+  theme = 'primary',
   size = 'md',
   class: className,
   ...rest
@@ -21,9 +21,16 @@ const {
 
 const colors = {
   primary:
-    'bg-indigo-600 text-white hover:bg-indigo-500 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-indigo-600',
+    'bg-indigo-600 text-white hover:bg-indigo-500 focus-visible:outline-indigo-600',
   secondary:
-    'bg-gray-100 text-gray-800 hover:bg-gray-200 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-gray-500'
+    'bg-gray-100 text-gray-800 hover:bg-gray-200 focus-visible:outline-gray-500',
+  success:
+    'bg-green-600 text-white hover:bg-green-500 focus-visible:outline-green-500',
+  danger:
+    'bg-red-600 text-white hover:bg-red-500 focus-visible:outline-red-500',
+  warning:
+    'bg-yellow-500 text-white hover:bg-yellow-400 focus-visible:outline-yellow-400',
+  info: 'bg-blue-600 text-white hover:bg-blue-500 focus-visible:outline-blue-500'
 }
 
 const classes =
@@ -43,7 +50,7 @@ const sizes = {
       class:list={[
         classes,
         className,
-        { [colors[color]]: color },
+        { [colors[theme]]: theme },
         { [sizes[size]]: size },
         { 'opacity-50 cursor-not-allowed': rest.disabled }
       ]}
@@ -57,7 +64,7 @@ const sizes = {
       class:list={[
         classes,
         className,
-        { [colors[color]]: color },
+        { [colors[theme]]: theme },
         { [sizes[size]]: size },
         { 'opacity-50 cursor-not-allowed': rest.disabled }
       ]}
