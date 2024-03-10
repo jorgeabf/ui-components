@@ -3,11 +3,52 @@ import Layout from '../layouts/Layout.astro'
 import Container from '../ui/Container.astro'
 import Badge from '../ui/Badge.astro'
 import Button from '../ui/Button.astro'
+import Card from '../ui/Card.astro'
 ---
 
 <Layout title='Componentes Astro Tailwind'>
   <Container>
-    <Button theme='danger' size='lg'>Button</Button>
-    <Badge color='green'>Badge</Badge>
+    <main class='grid gap-4 py-12'>
+      <Card class='bg-pink-100'>
+        <h2 class='text-xl uppercase font-semibold mb-2'>Ejemplo de Card</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur vero
+          exercitationem quasi itaque?
+        </p>
+      </Card>
+      <Card>
+        <Button
+          linkButton
+          size='lg'
+          href='/'
+        >
+          Button
+        </Button>
+        <Button
+          class='mr-6'
+          theme='danger'
+          size='md'
+        >
+          Button
+        </Button>
+        <Button
+          disabled
+          theme='info'
+          size='sm'
+        >
+          Button
+        </Button>
+      </Card>
+      <Card>
+        <Badge class='mr-12'>Badge</Badge>
+        <Badge color='blue'>Badge</Badge>
+        <Badge color='red'>Badge</Badge>
+        <Badge color='green'>Badge</Badge>
+        <Badge color='yellow'>Badge</Badge>
+        <Badge color='indigo'>Badge</Badge>
+        <Badge color='purple'>Badge</Badge>
+        <Badge color='pink'>Badge</Badge>
+      </Card>
+    </main>
   </Container>
 </Layout>
