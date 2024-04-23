@@ -4,6 +4,7 @@ import Container from '../ui/Container.astro'
 import Badge from '../ui/Badge.astro'
 import Button from '../ui/Button.astro'
 import Card from '../ui/Card.astro'
+import Modal from '../ui/Modal.astro'
 ---
 
 <Layout title='Componentes Astro Tailwind'>
@@ -49,6 +50,13 @@ import Card from '../ui/Card.astro'
         <Badge color='purple'>Badge</Badge>
         <Badge color='pink'>Badge</Badge>
       </Card>
+      <Modal openLabel='Abrir Modal 1' closeLabel='Cerrar Modal 1'>
+        <h2 class='text-xl uppercase font-semibold mb-2'>Modal 1</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur vero
+          exercitationem quasi itaque?
+        </p>
+      </Modal>
     </main>
   </Container>
 </Layout>
