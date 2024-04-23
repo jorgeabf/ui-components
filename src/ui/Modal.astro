@@ -1,17 +1,32 @@
 ---
 interface Props {
-  openLabel: string
-  closeLabel?: string
+  buttonText: string
 }
 
-const { openLabel, closeLabel = 'Cerrar modal' } = Astro.props
+const { buttonText } = Astro.props
 ---
 
 <aside data-modal>
-  <button>{openLabel}</button>
+  <button>{buttonText}</button>
   <dialog>
     <slot />
-    <button>{closeLabel}</button>
+    <button title='Cerrar Ventana Modal'>
+      <svg
+        width='32'
+        height='32'
+        stroke-width='1.5'
+        fill='none'
+        viewBox='0 0 24 24'
+      >
+        <path
+          d='M9.2 14.8 12 12m2.8-2.8L12 12m0 0L9.2 9.2M12 12l2.8 2.8M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Z'
+          stroke='currentColor'
+          stroke-linecap='round'
+          stroke-linejoin='round'
+        >
+        </path>
+      </svg>
+    </button>
   </dialog>
 </aside>
 
@@ -35,12 +50,23 @@ const { openLabel, closeLabel = 'Cerrar modal' } = Astro.props
 
 <style>
   dialog {
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    padding: 2rem;
     border: 1px solid hsl(0, 0%, 80%);
     border-radius: 0.5rem;
-    padding: 2rem;
   }
 
   ::backdrop {
     background-color: hsla(0, 0%, 0%, 0.5);
+  }
+
+  button[title='Cerrar Ventana Modal'] {
+    position: absolute;
+    right: 0.25rem;
+    bottom: 0.25rem;
+    display: block;
+    margin-left: auto;
   }
 </style>
