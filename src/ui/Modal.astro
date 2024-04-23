@@ -1,0 +1,46 @@
+---
+interface Props {
+  openLabel: string
+  closeLabel?: string
+}
+
+const { openLabel, closeLabel = 'Cerrar modal' } = Astro.props
+---
+
+<aside data-modal>
+  <button>{openLabel}</button>
+  <dialog>
+    <slot />
+    <button>{closeLabel}</button>
+  </dialog>
+</aside>
+
+<script>
+  const modals = document.querySelectorAll('[data-modal]')
+
+  modals.forEach((modal) => {
+    const dialog = modal.querySelector('dialog')
+    const openModal = modal.querySelector('button')
+    const closeModal = dialog?.querySelector('button')
+
+    openModal?.addEventListener('click', () => {
+      dialog?.showModal()
+    })
+
+    closeModal?.addEventListener('click', () => {
+      dialog?.close()
+    })
+  })
+</script>
+
+<style>
+  dialog {
+    border: 1px solid hsl(0, 0%, 80%);
+    border-radius: 0.5rem;
+    padding: 2rem;
+  }
+
+  ::backdrop {
+    background-color: hsla(0, 0%, 0%, 0.5);
+  }
+</style>
