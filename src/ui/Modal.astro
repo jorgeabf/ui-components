@@ -7,7 +7,7 @@ interface Props {
 const { openLabel, closeLabel = 'Cerrar modal' } = Astro.props
 ---
 
-<aside aria-modal>
+<aside data-modal>
   <button>{openLabel}</button>
   <dialog>
     <slot />
@@ -16,7 +16,7 @@ const { openLabel, closeLabel = 'Cerrar modal' } = Astro.props
 </aside>
 
 <script>
-  const modals = document.querySelectorAll('[aria-modal]')
+  const modals = document.querySelectorAll('[data-modal]')
 
   modals.forEach((modal) => {
     const dialog = modal.querySelector('dialog')
