@@ -1,4 +1,7 @@
 ---
+import Nav from '../ui/Nav.astro'
+import Container from '../ui/Container.astro'
+
 interface Props {
   title: string
 }
@@ -30,6 +33,11 @@ const { title } = Astro.props
     <title>{title}</title>
   </head>
   <body>
+    <header class="border-b border-gray-200 py-4">
+      <Container>
+        <Nav />
+      </Container>
+    </header>
     <slot />
   </body>
 </html>

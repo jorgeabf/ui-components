@@ -1,0 +1,92 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Container from '../ui/Container.astro'
+import Badge from '../ui/Badge.astro'
+import Card from '../ui/Card.astro'
+---
+
+<Layout title='Badges - Componentes Astro Tailwind'>
+  <Container>
+    <main class='py-12'>
+      <Card>
+        <h1 class='text-2xl font-bold mb-6'>Badges</h1>
+        
+        <!-- Tamaños -->
+        <div class='mb-6'>
+          <p class='text-sm text-gray-500 mb-2'>Tamaños</p>
+          <div class='flex flex-wrap items-center gap-2'>
+            <Badge size='sm'>Small</Badge>
+            <Badge size='md'>Medium</Badge>
+            <Badge size='lg'>Large</Badge>
+          </div>
+        </div>
+
+        <!-- Variantes -->
+        <div class='mb-6'>
+          <p class='text-sm text-gray-500 mb-2'>Variantes</p>
+          <div class='flex flex-wrap gap-2'>
+            <Badge variant='soft' color='blue'>Soft</Badge>
+            <Badge variant='solid' color='blue'>Solid</Badge>
+            <Badge variant='outline' color='blue'>Outline</Badge>
+          </div>
+        </div>
+
+        <!-- Colores Soft -->
+        <div class='mb-6'>
+          <p class='text-sm text-gray-500 mb-2'>Colores (Soft)</p>
+          <div class='flex flex-wrap gap-2'>
+            <Badge color='gray'>Gray</Badge>
+            <Badge color='red'>Red</Badge>
+            <Badge color='green'>Green</Badge>
+            <Badge color='blue'>Blue</Badge>
+            <Badge color='yellow'>Yellow</Badge>
+            <Badge color='indigo'>Indigo</Badge>
+            <Badge color='purple'>Purple</Badge>
+            <Badge color='pink'>Pink</Badge>
+          </div>
+        </div>
+
+        <!-- Colores Solid -->
+        <div class='mb-6'>
+          <p class='text-sm text-gray-500 mb-2'>Colores (Solid)</p>
+          <div class='flex flex-wrap gap-2'>
+            <Badge variant='solid' color='gray'>Gray</Badge>
+            <Badge variant='solid' color='red'>Red</Badge>
+            <Badge variant='solid' color='green'>Green</Badge>
+            <Badge variant='solid' color='blue'>Blue</Badge>
+            <Badge variant='solid' color='yellow'>Yellow</Badge>
+            <Badge variant='solid' color='indigo'>Indigo</Badge>
+            <Badge variant='solid' color='purple'>Purple</Badge>
+            <Badge variant='solid' color='pink'>Pink</Badge>
+          </div>
+        </div>
+
+        <!-- Colores Outline -->
+        <div class='mb-6'>
+          <p class='text-sm text-gray-500 mb-2'>Colores (Outline)</p>
+          <div class='flex flex-wrap gap-2'>
+            <Badge variant='outline' color='gray'>Gray</Badge>
+            <Badge variant='outline' color='red'>Red</Badge>
+            <Badge variant='outline' color='green'>Green</Badge>
+            <Badge variant='outline' color='blue'>Blue</Badge>
+            <Badge variant='outline' color='yellow'>Yellow</Badge>
+            <Badge variant='outline' color='indigo'>Indigo</Badge>
+            <Badge variant='outline' color='purple'>Purple</Badge>
+            <Badge variant='outline' color='pink'>Pink</Badge>
+          </div>
+        </div>
+
+        <!-- Con Dot -->
+        <div>
+          <p class='text-sm text-gray-500 mb-2'>Con indicador (dot)</p>
+          <div class='flex flex-wrap gap-2'>
+            <Badge dot color='green'>Online</Badge>
+            <Badge dot color='red'>Offline</Badge>
+            <Badge dot color='yellow'>Away</Badge>
+            <Badge dot variant='solid' color='blue'>Active</Badge>
+          </div>
+        </div>
+      </Card>
+    </main>
+  </Container>
+</Layout>
