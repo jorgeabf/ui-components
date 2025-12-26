@@ -1,38 +1,99 @@
 ---
-interface Props {
-  class?: string
-  color?:
-    | 'gray'
-    | 'red'
-    | 'green'
-    | 'blue'
-    | 'yellow'
-    | 'indigo'
-    | 'purple'
-    | 'pink'
+import type { HTMLAttributes } from 'astro/types'
+
+type Color = 'gray' | 'red' | 'green' | 'blue' | 'yellow' | 'indigo' | 'purple' | 'pink'
+type Size = 'sm' | 'md' | 'lg'
+type Variant = 'soft' | 'solid' | 'outline'
+
+interface Props extends HTMLAttributes<'span'> {
+  color?: Color
+  size?: Size
+  variant?: Variant
+  dot?: boolean
 }
 
-const { color = 'gray', class: className, ...rest } = Astro.props
+const {
+  class: className,
+  color = 'gray',
+  size = 'md',
+  variant = 'soft',
+  dot = false,
+  ...rest
+} = Astro.props
+
+const baseColors = {
+  red: 'bg-red-500',
+  green: 'bg-green-500',
+  blue: 'bg-blue-500',
+  yellow: 'bg-yellow-500',
+  indigo: 'bg-indigo-500',
+  purple: 'bg-purple-500',
+  pink: 'bg-pink-500',
+  gray: 'bg-gray-500'
+}
 
 const colors = {
-  red: 'bg-red-50 text-red-700 ring-red-600/10',
-  green: 'bg-green-50 text-green-700 ring-green-600/20',
-  blue: 'bg-blue-50 text-blue-700 ring-blue-600/10',
-  yellow: 'bg-yellow-50 text-yellow-800 ring-yellow-600/20',
-  indigo: 'bg-indigo-50 text-indigo-700 ring-indigo-600/10',
-  purple: 'bg-purple-50 text-purple-700 ring-purple-600/10',
-  pink: 'bg-pink-50 text-pink-700 ring-pink-600/10',
-  gray: 'bg-gray-50 text-gray-600 ring-gray-500/10'
+  soft: {
+    red: 'bg-red-50 text-red-700 ring-red-600/10',
+    green: 'bg-green-50 text-green-700 ring-green-600/10',
+    blue: 'bg-blue-50 text-blue-700 ring-blue-600/10',
+    yellow: 'bg-yellow-50 text-yellow-800 ring-yellow-600/10',
+    indigo: 'bg-indigo-50 text-indigo-700 ring-indigo-600/10',
+    purple: 'bg-purple-50 text-purple-700 ring-purple-600/10',
+    pink: 'bg-pink-50 text-pink-700 ring-pink-600/10',
+    gray: 'bg-gray-50 text-gray-600 ring-gray-500/10'
+  },
+  solid: {
+    red: `${baseColors.red} text-white`,
+    green: `${baseColors.green} text-white`,
+    blue: `${baseColors.blue} text-white`,
+    yellow: `${baseColors.yellow} text-white`,
+    indigo: `${baseColors.indigo} text-white`,
+    purple: `${baseColors.purple} text-white`,
+    pink: `${baseColors.pink} text-white`,
+    gray: `${baseColors.gray} text-white`
+  },
+  outline: {
+    red: 'text-red-700 ring-red-600',
+    green: 'text-green-700 ring-green-600',
+    blue: 'text-blue-700 ring-blue-600',
+    yellow: 'text-yellow-700 ring-yellow-600',
+    indigo: 'text-indigo-700 ring-indigo-600',
+    purple: 'text-purple-700 ring-purple-600',
+    pink: 'text-pink-700 ring-pink-600',
+    gray: 'text-gray-700 ring-gray-600'
+  }
+}
+
+const sizes = {
+  sm: 'px-2 py-0.5 text-xs',
+  md: 'px-2.5 py-0.5 text-sm',
+  lg: 'px-3 py-1 text-sm'
+}
+
+const dotSizes = {
+  sm: 'size-1.5',
+  md: 'size-2',
+  lg: 'size-2.5'
 }
 ---
 
-<div
+<span
   class:list={[
-    'inline-flex items-center rounded-full px-2 py-1 text-xs font-medium ring-1 ring-inset',
-    className,
-    { [colors[color]]: color }
+    'inline-flex items-center gap-x-1.5 rounded-full font-medium leading-none',
+    (variant === 'soft' || variant === 'outline') && 'ring-1 ring-inset',
+    colors[variant][color],
+    sizes[size],
+    className
   ]}
   {...rest}
 >
+  {dot && (
+    <span class:list={[
+      'rounded-full',
+      variant === 'solid' ? 'bg-white' : baseColors[color],
+      dotSizes[size]
+    ]} />
+  )}
   <slot />
-</div>
+</span>

@@ -1,0 +1,57 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Container from '../ui/Container.astro'
+import Button from '../ui/Button.astro'
+import Card from '../ui/Card.astro'
+---
+
+<Layout title='Buttons - Componentes Astro Tailwind'>
+  <Container>
+    <main class='py-12'>
+      <Card>
+        <h1 class='text-2xl font-bold mb-6'>Buttons</h1>
+        
+        <!-- Tamaños -->
+        <div class='mb-6'>
+          <p class='text-sm text-gray-500 mb-2'>Tamaños</p>
+          <div class='flex flex-wrap items-center gap-2'>
+            <Button size='sm'>Small</Button>
+            <Button size='md'>Medium</Button>
+            <Button size='lg'>Large</Button>
+          </div>
+        </div>
+
+        <!-- Temas -->
+        <div class='mb-6'>
+          <p class='text-sm text-gray-500 mb-2'>Temas</p>
+          <div class='flex flex-wrap gap-2'>
+            <Button theme='primary'>Primary</Button>
+            <Button theme='secondary'>Secondary</Button>
+            <Button theme='success'>Success</Button>
+            <Button theme='danger'>Danger</Button>
+            <Button theme='warning'>Warning</Button>
+            <Button theme='info'>Info</Button>
+          </div>
+        </div>
+
+        <!-- Estados -->
+        <div class='mb-6'>
+          <p class='text-sm text-gray-500 mb-2'>Estados</p>
+          <div class='flex flex-wrap gap-2'>
+            <Button>Normal</Button>
+            <Button disabled>Disabled</Button>
+          </div>
+        </div>
+
+        <!-- Link Button -->
+        <div>
+          <p class='text-sm text-gray-500 mb-2'>Link Button</p>
+          <div class='flex flex-wrap gap-2'>
+            <Button linkButton href='/'>Link como botón</Button>
+            <Button linkButton href='/badges' theme='secondary'>Ir a Badges</Button>
+          </div>
+        </div>
+      </Card>
+    </main>
+  </Container>
+</Layout>

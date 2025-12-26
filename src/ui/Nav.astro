@@ -1,0 +1,30 @@
+---
+interface Props {
+  class?: string
+}
+
+const { class: className } = Astro.props
+const currentPath = Astro.url.pathname
+
+const links = [
+  { href: '/', label: 'Inicio' },
+  { href: '/badges', label: 'Badges' },
+  { href: '/buttons', label: 'Buttons' }
+]
+---
+
+<nav class:list={['flex gap-4', className]}>
+  {links.map(({ href, label }) => (
+    <a
+      href={href}
+      class:list={[
+        'px-3 py-2 text-sm font-medium rounded-md transition-colors',
+        currentPath === href
+          ? 'bg-gray-900 text-white'
+          : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
+      ]}
+    >
+      {label}
+    </a>
+  ))}
+</nav>
