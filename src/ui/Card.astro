@@ -1,14 +1,22 @@
 ---
 interface Props {
   class?: string
+  variant?: 'default' | 'bordered' | 'flat'
 }
 
-const { class: className, ...rest } = Astro.props
+const { class: className, variant = 'default', ...rest } = Astro.props
+
+const variants = {
+  default: 'bg-white shadow dark:bg-gray-800',
+  bordered: 'bg-white ring-1 ring-inset ring-gray-200 dark:bg-gray-800 dark:ring-gray-700',
+  flat: 'bg-gray-50 ring-1 ring-inset ring-gray-100 dark:bg-gray-900 dark:ring-gray-800',
+}
 ---
 
 <div
   class:list={[
-    'px-4 py-5 sm:p-6 overflow-hidden rounded-lg bg-white shadow',
+    'px-4 py-5 sm:p-6 overflow-hidden rounded-lg',
+    variants[variant],
     className
   ]}
   {...rest}

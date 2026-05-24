@@ -2,29 +2,27 @@
 import Layout from '../layouts/Layout.astro'
 import Container from '../ui/Container.astro'
 import Button from '../ui/Button.astro'
-import Card from '../ui/Card.astro'
 ---
 
-<Layout title='Buttons - Componentes Astro Tailwind'>
+<Layout title='Button — Componentes Astro Tailwind'>
   <Container>
     <main class='py-12'>
-      <Card>
-        <h1 class='text-2xl font-bold mb-6'>Buttons</h1>
-        
-        <!-- Tamaños -->
-        <div class='mb-6'>
-          <p class='text-sm text-gray-500 mb-2'>Tamaños</p>
-          <div class='flex flex-wrap items-center gap-2'>
-            <Button size='sm'>Small</Button>
-            <Button size='md'>Medium</Button>
-            <Button size='lg'>Large</Button>
-          </div>
-        </div>
 
-        <!-- Temas -->
-        <div class='mb-6'>
-          <p class='text-sm text-gray-500 mb-2'>Temas</p>
-          <div class='flex flex-wrap gap-2'>
+      <header class='mb-10 pb-8 border-b border-gray-200 dark:border-gray-800'>
+        <h1 class='text-3xl font-bold text-gray-900 dark:text-white mb-2'>Button</h1>
+        <p class='text-gray-500 dark:text-gray-400 max-w-2xl'>
+          Botón polimórfico que renderiza como
+          <code class='text-sm bg-gray-100 dark:bg-gray-800 dark:text-gray-300 px-1.5 py-0.5 rounded'>&lt;button&gt;</code> o
+          <code class='text-sm bg-gray-100 dark:bg-gray-800 dark:text-gray-300 px-1.5 py-0.5 rounded'>&lt;a&gt;</code>.
+          Soporta 6 temas, 3 tamaños, estado deshabilitado y variante link.
+        </p>
+      </header>
+
+      <div class='space-y-10'>
+
+        <section>
+          <h2 class='text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-3'>
+          <div class='p-6 bg-white dark:bg-gray-800 rounded-lg shadow flex flex-wrap gap-3'>
             <Button theme='primary'>Primary</Button>
             <Button theme='secondary'>Secondary</Button>
             <Button theme='success'>Success</Button>
@@ -32,26 +30,59 @@ import Card from '../ui/Card.astro'
             <Button theme='warning'>Warning</Button>
             <Button theme='info'>Info</Button>
           </div>
-        </div>
+        </section>
 
-        <!-- Estados -->
-        <div class='mb-6'>
-          <p class='text-sm text-gray-500 mb-2'>Estados</p>
-          <div class='flex flex-wrap gap-2'>
+        <section>
+          <h2 class='text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-3'>Temas — Outline</h2>
+          <div class='p-6 bg-white dark:bg-gray-800 rounded-lg shadow flex flex-wrap gap-3'>
+            <Button variant='outline' theme='primary'>Primary</Button>
+            <Button variant='outline' theme='secondary'>Secondary</Button>
+            <Button variant='outline' theme='success'>Success</Button>
+            <Button variant='outline' theme='danger'>Danger</Button>
+            <Button variant='outline' theme='warning'>Warning</Button>
+            <Button variant='outline' theme='info'>Info</Button>
+          </div>
+        </section>
+
+        <section>
+          <h2 class='text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-3'>Temas — Ghost</h2>
+          <div class='p-6 bg-white dark:bg-gray-800 rounded-lg shadow flex flex-wrap gap-3'>
+            <Button variant='ghost' theme='primary'>Primary</Button>
+            <Button variant='ghost' theme='secondary'>Secondary</Button>
+            <Button variant='ghost' theme='success'>Success</Button>
+            <Button variant='ghost' theme='danger'>Danger</Button>
+            <Button variant='ghost' theme='warning'>Warning</Button>
+            <Button variant='ghost' theme='info'>Info</Button>
+          </div>
+        </section>
+
+        <section>
+          <h2 class='text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-3'>Tamaños</h2>
+          <div class='p-6 bg-white dark:bg-gray-800 rounded-lg shadow flex flex-wrap items-center gap-3'>
+            <Button size='sm'>Small</Button>
+            <Button size='md'>Medium</Button>
+            <Button size='lg'>Large</Button>
+          </div>
+        </section>
+
+        <section>
+          <h2 class='text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-3'>Estados</h2>
+          <div class='p-6 bg-white dark:bg-gray-800 rounded-lg shadow flex flex-wrap gap-3'>
             <Button>Normal</Button>
             <Button disabled>Disabled</Button>
           </div>
-        </div>
+        </section>
 
-        <!-- Link Button -->
-        <div>
-          <p class='text-sm text-gray-500 mb-2'>Link Button</p>
-          <div class='flex flex-wrap gap-2'>
-            <Button linkButton href='/'>Link como botón</Button>
+        <section>
+          <h2 class='text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-3'>Link Button</h2>
+          <div class='p-6 bg-white dark:bg-gray-800 rounded-lg shadow flex flex-wrap gap-3'>
+            <Button linkButton href='/'>Ir a Inicio</Button>
             <Button linkButton href='/badges' theme='secondary'>Ir a Badges</Button>
+            <Button linkButton href='/buttons' theme='info'>Ir a Buttons</Button>
           </div>
-        </div>
-      </Card>
+        </section>
+
+      </div>
     </main>
   </Container>
 </Layout>
