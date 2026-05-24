@@ -1,34 +1,35 @@
 ---
+import Button from './Button.astro'
+
 interface Props {
   buttonText: string
+  buttonTheme?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info'
+  buttonSize?: 'sm' | 'md' | 'lg'
+  title?: string
 }
 
-const { buttonText } = Astro.props
+const { buttonText, buttonTheme = 'primary', buttonSize = 'md', title } = Astro.props
 ---
 
-<aside data-modal>
-  <button>{buttonText}</button>
-  <dialog>
-    <slot />
-    <button title='Cerrar Ventana Modal'>
-      <svg
-        width='32'
-        height='32'
-        stroke-width='1.5'
-        fill='none'
-        viewBox='0 0 24 24'
+<div data-modal>
+  <Button theme={buttonTheme} size={buttonSize}>{buttonText}</Button>
+  <dialog class='w-full max-w-2xl rounded-xl border-0 outline-none p-0 shadow-2xl overflow-hidden dark:bg-gray-800'>
+    <header class='flex items-center justify-between px-6 py-4 border-b border-gray-200 dark:border-gray-700'>
+      {title && <h2 class='text-base font-semibold text-gray-900 dark:text-white'>{title}</h2>}
+      <button
+        class='ml-auto p-1.5 rounded-lg text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-colors dark:text-gray-500 dark:hover:text-gray-200 dark:hover:bg-gray-700'
+        title='Cerrar'
       >
-        <path
-          d='M9.2 14.8 12 12m2.8-2.8L12 12m0 0L9.2 9.2M12 12l2.8 2.8M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Z'
-          stroke='currentColor'
-          stroke-linecap='round'
-          stroke-linejoin='round'
-        >
-        </path>
-      </svg>
-    </button>
+        <svg width='20' height='20' fill='none' viewBox='0 0 24 24' stroke='currentColor' stroke-width='2'>
+          <path stroke-linecap='round' stroke-linejoin='round' d='M6 18L18 6M6 6l12 12' />
+        </svg>
+      </button>
+    </header>
+    <div class='px-6 py-5'>
+      <slot />
+    </div>
   </dialog>
-</aside>
+</div>
 
 <script>
   const modals = document.querySelectorAll('[data-modal]')
@@ -45,28 +46,16 @@ const { buttonText } = Astro.props
     closeModal?.addEventListener('click', () => {
       dialog?.close()
     })
+
+    dialog?.addEventListener('click', (e) => {
+      if (e.target === dialog) dialog.close()
+    })
   })
 </script>
 
 <style>
-  dialog {
-    position: relative;
-    width: 100%;
-    max-width: 700px;
-    padding: 2rem;
-    border: 1px solid hsl(0, 0%, 80%);
-    border-radius: 0.5rem;
-  }
-
-  ::backdrop {
-    background-color: hsla(0, 0%, 0%, 0.5);
-  }
-
-  button[title='Cerrar Ventana Modal'] {
-    position: absolute;
-    right: 0.25rem;
-    bottom: 0.25rem;
-    display: block;
-    margin-left: auto;
+  dialog::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
   }
 </style>

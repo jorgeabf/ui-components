@@ -6,6 +6,8 @@ dist/
 
 # dependencies
 node_modules/
+.agents
+skills-lock.json
 
 # logs
 npm-debug.log*

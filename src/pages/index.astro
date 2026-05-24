@@ -2,27 +2,80 @@
 import Layout from '../layouts/Layout.astro'
 import Container from '../ui/Container.astro'
 import Card from '../ui/Card.astro'
+import Button from '../ui/Button.astro'
+import Badge from '../ui/Badge.astro'
 import Modal from '../ui/Modal.astro'
 ---
 
-<Layout title='Componentes Astro Tailwind'>
+<Layout title='Componentes Astro + Tailwind'>
   <Container>
-    <main class='grid gap-4 py-12'>
-      <Card class='bg-pink-100'>
-        <h2 class='text-xl uppercase font-semibold mb-2'>Ejemplo de Card</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur vero
-          exercitationem quasi itaque?
+    <main class='py-16'>
+
+      <!-- Hero -->
+      <div class='mb-16 text-center'>
+        <span class='inline-block mb-4 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-indigo-600 bg-indigo-50 rounded-full ring-1 ring-indigo-200 dark:text-indigo-400 dark:bg-indigo-950 dark:ring-indigo-800'>
+          Astro + Tailwind CSS
+        </span>
+        <h1 class='text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl mb-4'>
+          Biblioteca de componentes
+        </h1>
+        <p class='text-lg text-gray-500 dark:text-gray-400 max-w-xl mx-auto mb-8'>
+          Componentes accesibles y personalizables listos para usar en tus proyectos Astro.
         </p>
-      </Card>
-      <Modal buttonText='Abrir Modal 1'>
-        <h2 class='text-xl uppercase font-semibold mb-2'>Modal 1</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur vero
-          exercitationem quasi itaque?
-          gggffffffffffffffffffttttttttttttttttttttttttttttttttto
-        </p>
-      </Modal>
+        <div class='flex gap-3 justify-center'>
+          <Button linkButton href='/buttons'>Ver Buttons</Button>
+          <Button linkButton href='/badges' theme='secondary'>Ver Badges</Button>
+        </div>
+      </div>
+
+      <!-- Grid de componentes -->
+      <div class='grid sm:grid-cols-2 lg:grid-cols-3 gap-6'>
+
+        <a href='/buttons'>
+          <Card class='h-full hover:shadow-md transition-shadow'>
+            <div class='flex items-center justify-between mb-3'>
+              <h2 class='text-base font-semibold text-gray-900 dark:text-gray-100'>Button</h2>
+              <Badge color='indigo' size='sm'>6 temas</Badge>
+            </div>
+            <p class='text-sm text-gray-500 dark:text-gray-400 mb-5'>Temas, tamaños, estados deshabilitados y soporte para links.</p>
+            <div class='flex flex-wrap gap-2'>
+              <Button size='sm'>Primary</Button>
+              <Button size='sm' theme='secondary'>Secondary</Button>
+              <Button size='sm' theme='danger'>Danger</Button>
+            </div>
+          </Card>
+        </a>
+
+        <a href='/badges'>
+          <Card class='h-full hover:shadow-md transition-shadow'>
+            <div class='flex items-center justify-between mb-3'>
+              <h2 class='text-base font-semibold text-gray-900 dark:text-gray-100'>Badge</h2>
+              <Badge color='blue' size='sm'>3 variantes</Badge>
+            </div>
+            <p class='text-sm text-gray-500 dark:text-gray-400 mb-5'>Soft, solid y outline en 8 colores con indicador de estado dot.</p>
+            <div class='flex flex-wrap gap-2'>
+              <Badge color='blue'>Blue</Badge>
+              <Badge variant='solid' color='green'>Online</Badge>
+              <Badge variant='outline' color='purple'>Outline</Badge>
+              <Badge dot color='yellow'>Away</Badge>
+            </div>
+          </Card>
+        </a>
+
+        <!-- Placeholder próximos componentes -->
+        <Card class='h-full'>
+          <div class='flex items-center justify-between mb-3'>
+              <h2 class='text-base font-semibold text-gray-900 dark:text-gray-100'>Modal</h2>
+            <Badge color='purple' size='sm'>Native dialog</Badge>
+          </div>
+          <p class='text-sm text-gray-500 dark:text-gray-400 mb-5'> accesible basado en el elemento nativo <code class='bg-gray-100 dark:bg-gray-700 dark:text-gray-200 px-1 rounded text-xs'>&lt;dialog&gt;</code>. Backdrop blur, cierre por teclado y clic fuera.
+          </p>
+          <Modal buttonText='Abrir Modal' title='Ejemplo de Modal'>
+            <p class='text-gray-600'>Este es un modal con título, backdrop blur y cierre haciendo clic fuera o en la X.</p>
+          </Modal>
+        </Card>
+
+      </div>
     </main>
   </Container>
 </Layout>
