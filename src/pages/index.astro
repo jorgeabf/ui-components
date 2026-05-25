@@ -9,35 +9,38 @@ import Modal from '../ui/Modal.astro'
 
 <Layout title='Componentes Astro + Tailwind'>
   <Container>
-    <main class='py-16'>
-
-      <!-- Hero -->
-      <div class='mb-16 text-center'>
-        <span class='inline-block mb-4 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-indigo-600 bg-indigo-50 rounded-full ring-1 ring-indigo-200 dark:text-indigo-400 dark:bg-indigo-950 dark:ring-indigo-800'>
-          Astro + Tailwind CSS
+    <main class='py-12 sm:py-16'>
+      <section class='grid-ambient mb-12 rounded-3xl border p-8 sm:p-12 animate-rise' style='border-color: var(--line); background: color-mix(in oklab, var(--surface) 86%, transparent);'>
+        <span class='mb-5 inline-flex rounded-full border px-4 py-1 text-[11px] font-bold uppercase tracking-[0.25em]' style='border-color: var(--line); color: var(--text-muted);'>
+          Semilla UI · Astro Components
         </span>
-        <h1 class='text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl mb-4'>
-          Biblioteca de componentes
+        <h1 class='brand-display mb-4 max-w-3xl text-4xl font-bold sm:text-6xl' style='color: var(--text);'>
+          Diseña interfaces con caracter, no plantillas genericas.
         </h1>
-        <p class='text-lg text-gray-500 dark:text-gray-400 max-w-xl mx-auto mb-8'>
-          Componentes accesibles y personalizables listos para usar en tus proyectos Astro.
+        <p class='mb-8 max-w-2xl text-base sm:text-lg' style='color: var(--text-muted);'>
+          Coleccion de componentes pensada para equipos que quieren velocidad, consistencia visual y una direccion estetica reconocible.
         </p>
-        <div class='flex gap-3 justify-center'>
+        <div class='flex flex-wrap gap-3'>
           <Button linkButton href='/buttons'>Ver Buttons</Button>
           <Button linkButton href='/badges' theme='secondary'>Ver Badges</Button>
+          <Button linkButton href='/buttons' theme='info' variant='outline'>Explorar variantes</Button>
         </div>
-      </div>
+      </section>
 
-      <!-- Grid de componentes -->
-      <div class='grid sm:grid-cols-2 lg:grid-cols-3 gap-6'>
+      <section class='mb-6 flex items-center justify-between gap-3 animate-rise animate-delay-1'>
+        <h2 class='brand-display text-2xl font-semibold' style='color: var(--text);'>Componentes disponibles</h2>
+        <Badge color='indigo' variant='outline'>En crecimiento</Badge>
+      </section>
+
+      <section class='grid gap-6 sm:grid-cols-2 lg:grid-cols-3 animate-rise animate-delay-2'>
 
         <a href='/buttons'>
-          <Card class='h-full hover:shadow-md transition-shadow'>
+          <Card class='h-full'>
             <div class='flex items-center justify-between mb-3'>
-              <h2 class='text-base font-semibold text-gray-900 dark:text-gray-100'>Button</h2>
+              <h2 class='text-lg font-semibold' style='color: var(--text);'>Button</h2>
               <Badge color='indigo' size='sm'>6 temas</Badge>
             </div>
-            <p class='text-sm text-gray-500 dark:text-gray-400 mb-5'>Temas, tamaños, estados deshabilitados y soporte para links.</p>
+            <p class='mb-5 text-sm' style='color: var(--text-muted);'>Sistema completo de botones con variantes solidas, outline, ghost y soporte nativo para enlaces.</p>
             <div class='flex flex-wrap gap-2'>
               <Button size='sm'>Primary</Button>
               <Button size='sm' theme='secondary'>Secondary</Button>
@@ -47,12 +50,12 @@ import Modal from '../ui/Modal.astro'
         </a>
 
         <a href='/badges'>
-          <Card class='h-full hover:shadow-md transition-shadow'>
+          <Card class='h-full'>
             <div class='flex items-center justify-between mb-3'>
-              <h2 class='text-base font-semibold text-gray-900 dark:text-gray-100'>Badge</h2>
+              <h2 class='text-lg font-semibold' style='color: var(--text);'>Badge</h2>
               <Badge color='blue' size='sm'>3 variantes</Badge>
             </div>
-            <p class='text-sm text-gray-500 dark:text-gray-400 mb-5'>Soft, solid y outline en 8 colores con indicador de estado dot.</p>
+            <p class='mb-5 text-sm' style='color: var(--text-muted);'>Etiquetas flexibles para estados, categorias y metadatos de interfaz con dot indicator incluido.</p>
             <div class='flex flex-wrap gap-2'>
               <Badge color='blue'>Blue</Badge>
               <Badge variant='solid' color='green'>Online</Badge>
@@ -62,20 +65,19 @@ import Modal from '../ui/Modal.astro'
           </Card>
         </a>
 
-        <!-- Placeholder próximos componentes -->
         <Card class='h-full'>
           <div class='flex items-center justify-between mb-3'>
-              <h2 class='text-base font-semibold text-gray-900 dark:text-gray-100'>Modal</h2>
+            <h2 class='text-lg font-semibold' style='color: var(--text);'>Modal</h2>
             <Badge color='purple' size='sm'>Native dialog</Badge>
           </div>
-          <p class='text-sm text-gray-500 dark:text-gray-400 mb-5'> accesible basado en el elemento nativo <code class='bg-gray-100 dark:bg-gray-700 dark:text-gray-200 px-1 rounded text-xs'>&lt;dialog&gt;</code>. Backdrop blur, cierre por teclado y clic fuera.
+          <p class='mb-5 text-sm' style='color: var(--text-muted);'>Componente accesible sobre <code>&lt;dialog&gt;</code> con backdrop blur, cierre por teclado y click fuera de caja.
           </p>
           <Modal buttonText='Abrir Modal' title='Ejemplo de Modal'>
-            <p class='text-gray-600'>Este es un modal con título, backdrop blur y cierre haciendo clic fuera o en la X.</p>
+            <p style='color: var(--text-muted);'>Este modal usa la API nativa del navegador para evitar hacks y mantener accesibilidad real.</p>
           </Modal>
         </Card>
 
-      </div>
+      </section>
     </main>
   </Container>
 </Layout>

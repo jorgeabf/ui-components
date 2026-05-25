@@ -7,15 +7,17 @@ interface Props {
 const { class: className, variant = 'default', ...rest } = Astro.props
 
 const variants = {
-  default: 'bg-white shadow dark:bg-gray-800',
-  bordered: 'bg-white ring-1 ring-inset ring-gray-200 dark:bg-gray-800 dark:ring-gray-700',
-  flat: 'bg-gray-50 ring-1 ring-inset ring-gray-100 dark:bg-gray-900 dark:ring-gray-800',
+  default: 'panel',
+  bordered: 'panel ring-1 ring-inset',
+  flat: 'rounded-2xl ring-1 ring-inset',
 }
 ---
 
 <div
   class:list={[
-    'px-4 py-5 sm:p-6 overflow-hidden rounded-lg',
+    'overflow-hidden rounded-2xl px-5 py-5 sm:px-6 sm:py-6 transition-transform duration-300 hover:-translate-y-1',
+    variant === 'bordered' && 'ring-[var(--line)]',
+    variant === 'flat' && 'bg-[var(--surface-strong)] ring-[var(--line)]',
     variants[variant],
     className
   ]}

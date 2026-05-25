@@ -13,16 +13,21 @@ const links = [
 ]
 ---
 
-<nav class:list={['flex gap-4', className]}>
+<nav class:list={['items-center gap-2 rounded-full border p-1', className]} style='border-color: var(--line); background: color-mix(in oklab, var(--surface) 92%, transparent);'>
   {links.map(({ href, label }) => (
     <a
       href={href}
       class:list={[
-        'px-3 py-2 text-sm font-medium rounded-md transition-colors',
+        'rounded-full px-3 py-2 text-sm font-semibold transition-all duration-200',
         currentPath === href
-          ? 'bg-gray-900 text-white dark:bg-gray-700'
-          : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-white'
+          ? 'text-white shadow-sm'
+          : 'hover:-translate-y-0.5'
       ]}
+      style={
+        currentPath === href
+          ? 'background: var(--accent); color: #fff;'
+          : 'color: var(--text-muted);'
+      }
     >
       {label}
     </a>

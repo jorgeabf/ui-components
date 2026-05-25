@@ -6,24 +6,20 @@ import Badge from '../../ui/Badge.astro'
 
 <Layout title='Badge — Componentes Astro Tailwind'>
   <Container>
-    <main class='py-12'>
-
-      <header class='mb-10 pb-8 border-b border-gray-200 dark:border-gray-800'>
-        <h1 class='text-3xl font-bold text-gray-900 dark:text-white mb-2'>Badge</h1>
-        <p class='text-gray-500 dark:text-gray-400 max-w-2xl'>
-          Etiquetas compactas para categorizar o indicar estado. Tres variantes
-          (<code class='text-sm bg-gray-100 dark:bg-gray-800 dark:text-gray-300 px-1.5 py-0.5 rounded'>soft</code>,
-          <code class='text-sm bg-gray-100 dark:bg-gray-800 dark:text-gray-300 px-1.5 py-0.5 rounded'>solid</code>,
-          <code class='text-sm bg-gray-100 dark:bg-gray-800 dark:text-gray-300 px-1.5 py-0.5 rounded'>outline</code>),
-          ocho colores y tres tamaños.
+    <main class='py-12 sm:py-16'>
+      <header class='mb-10 rounded-3xl border p-7 sm:p-9 animate-rise' style='border-color: var(--line); background: color-mix(in oklab, var(--surface) 88%, transparent);'>
+        <p class='section-title mb-3'>Componente</p>
+        <h1 class='brand-display mb-3 text-4xl font-bold sm:text-5xl' style='color: var(--text);'>Badge</h1>
+        <p class='max-w-2xl text-base sm:text-lg' style='color: var(--text-muted);'>
+          Etiquetas compactas para categorizar o indicar estado. Incluye variantes <code>soft</code>, <code>solid</code> y <code>outline</code> con ocho colores y tres tamanos.
         </p>
       </header>
 
-      <div class='space-y-10'>
+      <div class='space-y-8 animate-rise animate-delay-1'>
 
         <section>
-          <h2 class='text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-3'>
-          <div class='p-6 bg-white dark:bg-gray-800 rounded-lg shadow flex flex-wrap items-center gap-3'>
+          <h2 class='section-title mb-3'>Tamanos</h2>
+          <div class='panel flex flex-wrap items-center gap-3 p-6'>
             <Badge size='sm'>Small</Badge>
             <Badge size='md'>Medium</Badge>
             <Badge size='lg'>Large</Badge>
@@ -31,8 +27,8 @@ import Badge from '../../ui/Badge.astro'
         </section>
 
         <section>
-          <h2 class='text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-3'>Variantes</h2>
-          <div class='p-6 bg-white dark:bg-gray-800 rounded-lg shadow flex flex-wrap gap-3'>
+          <h2 class='section-title mb-3'>Variantes</h2>
+          <div class='panel flex flex-wrap gap-3 p-6'>
             <Badge variant='soft' color='blue'>Soft</Badge>
             <Badge variant='solid' color='blue'>Solid</Badge>
             <Badge variant='outline' color='blue'>Outline</Badge>
@@ -40,8 +36,8 @@ import Badge from '../../ui/Badge.astro'
         </section>
 
         <section>
-          <h2 class='text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-3'>Colores — Soft</h2>
-          <div class='p-6 bg-white dark:bg-gray-800 rounded-lg shadow flex flex-wrap gap-2'>
+          <h2 class='section-title mb-3'>Colores - Soft</h2>
+          <div class='panel flex flex-wrap gap-2 p-6'>
             <Badge color='gray'>Gray</Badge>
             <Badge color='red'>Red</Badge>
             <Badge color='green'>Green</Badge>
@@ -54,8 +50,8 @@ import Badge from '../../ui/Badge.astro'
         </section>
 
         <section>
-          <h2 class='text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-3'>Colores — Solid</h2>
-          <div class='p-6 bg-white dark:bg-gray-800 rounded-lg shadow flex flex-wrap gap-2'>
+          <h2 class='section-title mb-3'>Colores - Solid</h2>
+          <div class='panel flex flex-wrap gap-2 p-6'>
             <Badge variant='solid' color='gray'>Gray</Badge>
             <Badge variant='solid' color='red'>Red</Badge>
             <Badge variant='solid' color='green'>Green</Badge>
@@ -68,8 +64,8 @@ import Badge from '../../ui/Badge.astro'
         </section>
 
         <section>
-          <h2 class='text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-3'>Colores — Outline</h2>
-          <div class='p-6 bg-white dark:bg-gray-800 rounded-lg shadow flex flex-wrap gap-2'>
+          <h2 class='section-title mb-3'>Colores - Outline</h2>
+          <div class='panel flex flex-wrap gap-2 p-6'>
             <Badge variant='outline' color='gray'>Gray</Badge>
             <Badge variant='outline' color='red'>Red</Badge>
             <Badge variant='outline' color='green'>Green</Badge>
@@ -82,8 +78,8 @@ import Badge from '../../ui/Badge.astro'
         </section>
 
         <section>
-          <h2 class='text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-3'>Con indicador (dot)</h2>
-          <div class='p-6 bg-white dark:bg-gray-800 rounded-lg shadow flex flex-wrap gap-3'>
+          <h2 class='section-title mb-3'>Con indicador (dot)</h2>
+          <div class='panel flex flex-wrap gap-3 p-6'>
             <Badge dot color='green'>Online</Badge>
             <Badge dot color='red'>Offline</Badge>
             <Badge dot color='yellow'>Away</Badge>
