@@ -3,29 +3,29 @@
 @tailwind utilities;
 
 :root {
-  --bg: #f7f3ea;
-  --bg-soft: #efe6d8;
-  --surface: #fffdf7;
-  --surface-strong: #f3ecdf;
-  --text: #1f2328;
-  --text-muted: #5a626d;
-  --line: #d6cdbf;
-  --accent: #c2410c;
-  --accent-strong: #9a3412;
+  --bg: hsl(42, 45%, 94%);
+  --bg-soft: hsl(37, 42%, 89%);
+  --surface: hsl(45, 100%, 98%);
+  --surface-strong: hsl(39, 45%, 91%);
+  --text: hsl(213, 13%, 14%);
+  --text-muted: hsl(215, 10%, 39%);
+  --line: hsl(37, 22%, 79%);
+  --accent: hsl(17, 88%, 40%);
+  --accent-strong: hsl(15, 79%, 34%);
   --brand-display: 'Fraunces', 'Times New Roman', serif;
   --brand-body: 'Manrope', 'Segoe UI', sans-serif;
 }
 
 .dark {
-  --bg: #121617;
-  --bg-soft: #1b2325;
-  --surface: #182022;
-  --surface-strong: #202a2d;
-  --text: #f4f1e8;
-  --text-muted: #adb3aa;
-  --line: #334044;
-  --accent: #f97316;
-  --accent-strong: #fb923c;
+  --bg: hsl(192, 12%, 8%);
+  --bg-soft: hsl(192, 16%, 13%);
+  --surface: hsl(192, 17%, 11%);
+  --surface-strong: hsl(194, 17%, 15%);
+  --text: hsl(45, 35%, 93%);
+  --text-muted: hsl(100, 6%, 68%);
+  --line: hsl(194, 14%, 23%);
+  --accent: hsl(25, 95%, 53%);
+  --accent-strong: hsl(27, 96%, 61%);
 }
 
 html,
@@ -66,8 +66,8 @@ code {
     border-radius: 1rem;
     background: color-mix(in oklab, var(--surface) 84%, transparent);
     box-shadow:
-      0 20px 40px -32px rgba(8, 9, 12, 0.6),
-      0 8px 20px -16px rgba(8, 9, 12, 0.5);
+      0 20px 40px -32px hsla(225, 20%, 4%, 0.6),
+      0 8px 20px -16px hsla(225, 20%, 4%, 0.5);
     backdrop-filter: blur(8px);
   }
 
